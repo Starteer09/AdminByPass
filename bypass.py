@@ -74,7 +74,7 @@ def main():
                          ('Accept-Encoding','br')]
         br.open(target_url, timeout=10.0)
 
-        headers = br.response().info().headers
+        headers = br.response().headers
         if 'x-frame-options:' not in headers:
             print('[+] Heuristic found a Clickjacking Vulnerability')
         if 'cloudflare-nginx' in str(headers).lower():
